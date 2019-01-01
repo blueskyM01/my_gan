@@ -98,9 +98,8 @@ def m4_linear(input_, output, active_function='leak_relu', norm='batch_norm', is
         return conn
 
 
-def resnet_18(input_, name='resnet_18'):
+def m4_resnet_18(input_, name='resnet_18'):
     with tf.variable_scope(name):
-
         conv1 = m4_conv_moudel(input_, 32, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
                                active_function='leak_relu',
                                norm='batch_norm', is_trainable=True, do_active=True, name='conv1')
@@ -112,7 +111,7 @@ def resnet_18(input_, name='resnet_18'):
         res_block1 = pool2
 
         for i in range(2):
-            res_block1 = res_block(res_block1, [64, 64], [3, 3], [1, 1], active_function='leak_relu',
+            res_block1 = m4_res_block(res_block1, [64, 64], [3, 3], [1, 1], active_function='leak_relu',
                                    name='3x3x64_{}'.format(i))
 
         conv3 = m4_conv_moudel(res_block1, 128, k_h=3, k_w=3, s_h=2, s_w=2, stddev=0.02, padding="SAME",
@@ -121,21 +120,21 @@ def resnet_18(input_, name='resnet_18'):
 
         res_block2 = conv3
         for i in range(2):
-            res_block2 = res_block(res_block2, [128, 128], [3, 3], [1, 1], active_function='leak_relu',
+            res_block2 = m4_res_block(res_block2, [128, 128], [3, 3], [1, 1], active_function='leak_relu',
                                    name='3x3x128_{}'.format(i))
         conv4 = m4_conv_moudel(res_block2, 256, k_h=3, k_w=3, s_h=2, s_w=2, stddev=0.02, padding="SAME",
                                active_function='leak_relu',
                                norm='batch_norm', is_trainable=True, do_active=True, name='conv4')  # 16x16x256
         res_block3 = conv4
         for i in range(2):
-            res_block3 = res_block(res_block3, [256, 256], [3, 3], [1, 1], active_function='leak_relu',
+            res_block3 = m4_res_block(res_block3, [256, 256], [3, 3], [1, 1], active_function='leak_relu',
                                    name='3x3x256_{}'.format(i))
         conv5 = m4_conv_moudel(res_block3, 512, k_h=3, k_w=3, s_h=2, s_w=2, stddev=0.02, padding="SAME",
                                active_function='leak_relu',
                                norm='batch_norm', is_trainable=True, do_active=True, name='conv5')  # 8x8x512
         res_block4 = conv5
         for i in range(3):
-            res_block4 = res_block(res_block4, [512, 512], [3, 3], [1, 1], active_function='leak_relu',
+            res_block4 = m4_res_block(res_block4, [512, 512], [3, 3], [1, 1], active_function='leak_relu',
                                    name='3x3x512_{}'.format(i))
         _, h, w, nc = res_block4.get_shape().as_list()
         reshape = tf.reshape(res_block4, [-1, h * w * nc])
@@ -145,9 +144,9 @@ def resnet_18(input_, name='resnet_18'):
         return conn1, output
 
 
-def res_block(input_, n_filters, k_sizes, s_sizes, padding='SAME', stddev=0.02, active_function='relu',
+def m4_res_block(input_, n_filters, k_sizes, s_sizes, padding='SAME', stddev=0.02, active_function='relu',
               norm='batch_norm',
-              is_trainable=True, do_active=True, name='res_block'):
+              is_trainable=True, do_active=True, name='m4_res_block'):
     # n_filters=[64,64]
     # k_sizes=[3,3]
     # s_sizes=[1,1]
@@ -169,6 +168,35 @@ def res_block(input_, n_filters, k_sizes, s_sizes, padding='SAME', stddev=0.02, 
         conv = tf.nn.relu(conv + input_, name='relu')
         conv = m4_batch_norm(conv, is_trainable)
         return conv
+    
+def m4_VGG(input_,name='VGG'):
+    with tf.variable_scope(name):
+        conv1 = m4_conv_moudel(input_, 32, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv1')
+        pool1 = tf.nn.max_pool(conv1, [1, 2, 2, 1], [1, 2, 2, 1], padding='SAME', name='pool1')  # 125x125x32
+        conv2 = m4_conv_moudel(pool1, 64, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv2')
+        pool2 = tf.nn.max_pool(conv2, [1, 2, 2, 1], [1, 2, 2, 1], padding='SAME', name='pool2')  # 63x63x64
+
+        conv3 = m4_conv_moudel(pool2, 64, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv3')
+        pool3 = tf.nn.max_pool(conv3, [1, 2, 2, 1], [1, 2, 2, 1], padding='SAME', name='pool2')  # 32x32x64
+
+        conv4 = m4_conv_moudel(pool3, 128, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv4')# 32x32x128
+        conv5 = m4_conv_moudel(conv4, 128, k_h=3, k_w=3, s_h=1, s_w=1, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv5')# 32x32x128
+
+        conv6 = m4_conv_moudel(conv5, 128, k_h=3, k_w=3, s_h=2, s_w=2, stddev=0.02, padding="SAME",
+                               active_function='leak_relu',
+                               norm='batch_norm', is_trainable=True, do_active=True, name='conv6')# 16x16x128
+        return conv5, tf.reduce_mean(conv6)
+
 
 
 def m4_average_grads(tower):
@@ -196,6 +224,7 @@ def m4_wgan_loss(d_real, d_fake):
 def m4_parse_function(filename, label):
     image_string = tf.read_file(filename)
     image_decoded = tf.image.decode_image(image_string)
+    image_decoded = tf.image.convert_image_dtype(image_decoded,dtype=tf.float32) * 2.0 - 1.0
     # image_decoded = tf.image.decode_jpeg(image_string)
     # image_resized = tf.image.resize_images(image_decoded, [28, 28])
     return image_decoded, label

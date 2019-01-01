@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 
-def m4_image_save_cv(images, savepath, rows=4, cols=4, zero_mean=True):
+def m4_image_save_cv(images, savepath, rows=4, zero_mean=True):
     # introduction: a series of images save as a picture
     # image: 4 dims
     # rows: how many images in a row
@@ -11,12 +11,12 @@ def m4_image_save_cv(images, savepath, rows=4, cols=4, zero_mean=True):
     # zero_mean:
 
     if zero_mean:
-        images = images * 255.0 + 127.5
+        images = images * 127.5 + 127.5
     if images.dtype != np.uint8:
         images = images.astype(np.uint8)
     img_num, img_height, img_width, nc = images.shape
     h_nums = rows
-    w_nums = cols
+    w_nums = img_num // h_nums
     merge_image_height = h_nums * img_height
     merge_image_width = w_nums * img_width
     merge_image = np.ones([merge_image_height, merge_image_width, nc], dtype=np.uint8)
@@ -24,4 +24,11 @@ def m4_image_save_cv(images, savepath, rows=4, cols=4, zero_mean=True):
         for j in range(w_nums):
             merge_image[i * img_height:(i + 1) * img_height, j * img_width:(j + 1) * img_width] = images[
                 i * w_nums + j]
+
+    merge_image = cv2.cvtColor(merge_image, cv2.COLOR_BGR2RGB)  # cv2默认为bgr顺序
     cv2.imwrite(savepath, merge_image)
+
+def m4_get_open_image_name(file_list,dataset_dir):
+    for i in range(len(file_list)):
+        file_list[i] = os.path.join(dataset_dir,file_list[i])
+    return file_list

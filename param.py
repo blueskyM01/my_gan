@@ -5,12 +5,16 @@ dataset_name = 'lfw-deepfunneled'
 datalabel_dir = '/media/yang/F/DataSet/Face/Label'
 datalabel_name = 'pair_FGLFW.txt'
 log_dir = './logs'
+sampel_save_dir = './samples'
 num_gpus = 2
-learning_rate = 0.0002
-beta1 = 0.
-beta2 = 0.99
-batch_size = 64
+epoch = 40
+learning_rate = 0.001
+beta1 = 0.5
+beta2 = 0.5
+batch_size = 16
 z_dim = 128
 g_feats = 64
+saveimage_period = 10
+savemodel_period = 40
 
 

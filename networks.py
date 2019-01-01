@@ -10,38 +10,38 @@ class m4_gan_network:
         self.cfg = cfg
         self.global_step = tf.Variable(0, name='global_step', trainable=False)
 
-    def build_model(self, images, labels, z, learning_rate, beta1, beta2):
+    def build_model(self, images, labels, z):
         with tf.device('/cpu:0'):
 
-            self.op_g = tf.train.AdamOptimizer(self.cfg.learning_rate, beta1=self.cfg.beta1, beta2=self.cfg.beta2)
-            self.op_d = tf.train.AdamOptimizer(self.cfg.learning_rate, beta1=self.cfg.beta1, beta2=self.cfg.beta2)
+            self.op_g = tf.train.AdamOptimizer(learning_rate=self.cfg.learning_rate, beta1=self.cfg.beta1, beta2=self.cfg.beta2)
+            self.op_d = tf.train.AdamOptimizer(learning_rate=self.cfg.learning_rate, beta1=self.cfg.beta1, beta2=self.cfg.beta2)
 
             grads_g = []
             grads_d = []
             grads_c = []
 
             for i in range(self.cfg.num_gpus):
-                with tf.variable_scope('one_gpu'):
-                    images_on_one_gpu = images[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
-                    labels_on_one_gpu = labels[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
-                    z_on_one_gpu = z[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
+                images_on_one_gpu = images[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
+                labels_on_one_gpu = labels[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
+                z_on_one_gpu = z[self.cfg.batch_size * i:self.cfg.batch_size * (i + 1)]
                 with tf.device("/gpu:{}".format(i)):
                     with tf.variable_scope("GPU_0") as scope:
                         if i != 0:
                             scope.reuse_variables()
 
                         fake_image = self.m4_generator(z_on_one_gpu, self.cfg, reuse=False)
-                        if i ==0:
-                            sampler = self.m4_generator(z_on_one_gpu, self.cfg, reuse=True)
+                        if i == 0:
+                            self.sampler = self.m4_generator(z_on_one_gpu, self.cfg, reuse=True)
 
                         D_fake = self.m4_discriminator(fake_image,self.cfg,reuse=False)
                         D_real = self.m4_discriminator(images_on_one_gpu,self.cfg,reuse=True)
 
                         self.d_loss,self.g_loss = m4_wgan_loss(D_real,D_fake)
-                        '''
+
+
                         # Gradient penalty
-                        lambda_gp = 10
-                        gamma_gp = 1
+                        lambda_gp = 10.
+                        gamma_gp = 1.
                         batch_size = self.cfg.batch_size
                         input_shape = images_on_one_gpu.get_shape().as_list()
                         alpha = tf.random_uniform(shape=input_shape, minval=0., maxval=1.)
@@ -54,7 +54,8 @@ class m4_gan_network:
                         gradient_penalty = \
                             lambda_gp * tf.reduce_mean((slopes / gamma_gp - 1.) ** 2)
                         self.d_loss += gradient_penalty
-                        '''
+                        
+
                         # drift
                         eps = 0.001
                         drift_loss = eps * tf.reduce_mean(tf.nn.l2_loss(D_real))
@@ -75,11 +76,9 @@ class m4_gan_network:
                 print('Init GPU:{} finshed'.format(i))
             mean_grad_g = m4_average_grads(grads_g)
             mean_grad_d = m4_average_grads(grads_d)
-            self.g_optim = self.op_g.apply_gradients(mean_grad_g,global_step=self.global_step)
-            self.d_optim = self.op_d.apply_gradients(mean_grad_d)
+            self.g_optim = self.op_g.apply_gradients(mean_grad_g)
+            self.d_optim = self.op_d.apply_gradients(mean_grad_d,global_step=self.global_step)
 
-
-        return self.g_optim, self.d_optim
 
     def m4_generator(self, z, cfg, reuse=False):
         with tf.variable_scope('generator') as scope:
@@ -103,20 +102,22 @@ class m4_gan_network:
                                        do_active=True, name='deconv4')
             resnet = deconv4
             for i in range(6):
-                resnet = res_block(resnet, [cfg.g_feats // 2, cfg.g_feats // 2], [3, 3], [1, 1],
+                resnet = m4_res_block(resnet, [cfg.g_feats // 2, cfg.g_feats // 2], [3, 3], [1, 1],
                                    active_function='leak_relu', name='resnet{}'.format(i))
 
             deconv5 = m4_deconv_moudel(resnet, [cfg.batch_size, 128, 128, cfg.g_feats // 4], padding="SAME",
                                        active_function='leak_relu', norm='batch_norm', is_trainable=True,
-                                       do_active=True, name='deconv5')
+                                       do_active=True, name='deconv5') # 256
 
-            conv1 = m4_conv_moudel(deconv5, cfg.g_feats // 8, 4, 4,1,1, padding='VALID', active_function='leak_relu',
-                                   is_trainable=True, do_active=True, name='conv1') # 125x125x8
-            deconv6 = m4_deconv_moudel(conv1, [cfg.batch_size, 250, 250, 3], padding="SAME",
+
+            deconv6 = m4_deconv_moudel(deconv5, [cfg.batch_size, 256, 256, cfg.g_feats // 8], padding="SAME",
                                        active_function='leak_relu', norm='batch_norm', is_trainable=True,
-                                       do_active=False, name='deconv6')
+                                       do_active=True, name='deconv6')
 
-            output = tf.nn.tanh(deconv6,name='tanh')
+            conv1 = m4_conv_moudel(deconv6, 3, 7, 7, 1, 1, padding='VALID', active_function='leak_relu',
+                                   is_trainable=True, do_active=False, name='conv1')  # 250x250x8
+
+            output = tf.nn.tanh(conv1,name='tanh')
 
             return output
 
@@ -125,5 +126,6 @@ class m4_gan_network:
             if reuse:
                 scope.reuse_variables()
 
-            feat, d_out = resnet_18(input_,name='resnet_18')
+            # feat, d_out = m4_resnet_18(input_,name='resnet_18')
+            feat, d_out = m4_VGG(input_,name='resnet_18')
             return d_out
