@@ -223,8 +223,8 @@ def m4_wgan_loss(d_real, d_fake):
 
 def m4_parse_function(filename, label):
     image_string = tf.read_file(filename)
-    image_decoded = tf.image.decode_image(image_string)
+    # image_decoded = tf.image.decode_image(image_string)
+    image_decoded = tf.image.decode_jpeg(image_string)
     image_decoded = tf.image.convert_image_dtype(image_decoded,dtype=tf.float32) * 2.0 - 1.0
-    # image_decoded = tf.image.decode_jpeg(image_string)
-    # image_resized = tf.image.resize_images(image_decoded, [28, 28])
-    return image_decoded, label
+    image_resized = tf.image.resize_images(image_decoded, [256, 256])
+    return image_resized, label

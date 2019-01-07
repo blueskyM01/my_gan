@@ -12,12 +12,14 @@ class my_gan:
     def __init__(self, sess, cfg):
         self.sess = sess
         self.cfg = cfg
-        self.images = tf.placeholder(dtype=tf.float32, shape=[self.cfg.batch_size * self.cfg.num_gpus, 250, 250, 3],
+        self.images = tf.placeholder(dtype=tf.float32, shape=[self.cfg.batch_size * self.cfg.num_gpus, 256, 256, 3],
                                      name='real_image')
         self.labels = tf.placeholder(dtype=tf.float32, shape=[self.cfg.batch_size * self.cfg.num_gpus, 10000],
                                      name='id')
         self.z = tf.placeholder(dtype=tf.float32, shape=[None, self.cfg.z_dim], name='noise_z')
 
+        '''
+        #-----------------------------m4_gan_network-----------------------------
         my_gan_model = m4_gan_network(self.cfg)
         my_gan_model.build_model(self.images, self.labels, self.z)
         self.g_optim = my_gan_model.g_optim
@@ -28,7 +30,24 @@ class my_gan:
         self.g_loss_sum = my_gan_model.g_loss_sum
         self.d_loss_sum = my_gan_model.d_loss_sum
         self.global_step = my_gan_model.global_step
-        self.sampler = my_gan_model.global_step
+        self.sampler = my_gan_model.sampler
+        #-----------------------------m4_gan_network-----------------------------
+        '''
+
+        # -----------------------------m4_BE_GAN_network-----------------------------
+        m4_BE_GAN_model = m4_BE_GAN_network(self.cfg)
+        m4_BE_GAN_model.build_model(self.images, self.labels, self.z)
+        self.g_optim = m4_BE_GAN_model.g_optim
+        self.d_optim = m4_BE_GAN_model.d_optim
+        self.g_loss = m4_BE_GAN_model.g_loss
+        self.d_loss = m4_BE_GAN_model.d_loss
+
+        self.image_fake_sum = m4_BE_GAN_model.image_fake_sum
+        self.g_loss_sum = m4_BE_GAN_model.g_loss_sum
+        self.d_loss_sum = m4_BE_GAN_model.d_loss_sum
+        self.global_step = m4_BE_GAN_model.global_step
+        self.sampler = m4_BE_GAN_model.sampler
+        # -----------------------------m4_BE_GAN_network-----------------------------
 
     def train(self):
         saver = tf.train.Saver()
@@ -74,18 +93,18 @@ class my_gan:
                     continue
 
                 # Upadate D network
-                _, d_loss, summary_str,counter,merged_ = self.sess.run(
-                    [self.d_optim, self.d_loss, self.d_loss_sum,self.global_step,merged],
+                _, d_loss, counter,merged_ = self.sess.run(
+                    [self.d_optim, self.d_loss, self.global_step,merged],
                     feed_dict={self.images: batch_images,
                                self.z: batch_z})
-                self.writer.add_summary(summary_str, counter)
+
 
                 # Update G network
-                _, g_loss, summary_str, samplers = self.sess.run(
-                    [self.g_optim, self.g_loss, self.g_loss_sum, self.image_fake_sum],
-                    feed_dict={self.z: batch_z})
-                self.writer.add_summary(summary_str, counter)
-                self.writer.add_summary(samplers)
+                _, g_loss, samplers = self.sess.run(
+                    [self.g_optim, self.g_loss, self.image_fake_sum],
+                    feed_dict={self.images: batch_images,
+                               self.z: batch_z})
+                self.writer.add_summary(merged_, counter)
 
                 endtime = datetime.datetime.now()
 
