@@ -4,37 +4,16 @@ import os
 from utils import *
 # import tensorflow as tf
 
-data_dir = '/media/yang/F/DataSet/Face'
-data_set_name = 'lfw-deepfunneled'
+data_dir = '/media/yang/F/DataSet/Face/LFW_FF-GAN'
+data_set_name = 'LFW_FF-GAN'
 label_dir = '/media/yang/F/DataSet/Face/Label'
 label_name = 'pair_FGLFW.txt'
 
-# names = np.loadtxt(os.path.join(label_dir,label_name),dtype=str)
-#
-# names = names[0:16]
-# images = []
-# for i in names:
-#
-#     image = cv2.imread(os.path.join(data_dir,data_set_name,i))
-#     images.append(image)
-#
-#
-# if not os.path.exists('./samples'):
-#     os.makedirs('./samples')
-#
-# img = (np.array(images,np.float32)- 127.5) / 255.0
-# m4_image_save_cv(img,savepath='./samples/{}.jpg'.format(2),rows=2,cols=8,zero_mean=True)
+aaaa = m4_face_label_maker(os.path.join(data_dir,data_set_name),'/media/yang/F/1.txt')
 
 
 
-a = np.array([['han'],['yu']],dtype=np.str)
-b = a.tolist()
-print(b)
 
-for i in range(10):
-    if i==4:
-        continue
-    print(i)
 
 
 

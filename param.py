@@ -22,15 +22,16 @@ savemodel_period = 40
 '''
 
 #-----------------------------m4_BE_GAN_network-----------------------------
-dataset_dir = '/media/yang/F/DataSet/Face'
-dataset_name = 'lfw-deepfunneled'
+dataset_dir = '/media/yang/F/DataSet/Face/LFW_FF-GAN'
+dataset_name = 'LFW_FF-GAN'
 datalabel_dir = '/media/yang/F/DataSet/Face/Label'
-datalabel_name = 'pair_FGLFW.txt'
-log_dir = './logs'
-sampel_save_dir = './samples'
-num_gpus = 2
+datalabel_name = 'LFW_FF-GAN.txt'
+log_dir = 'logs'
+sampel_save_dir = 'samples'
+checkpoint_dir = 'checkpoint'
+num_gpus = 1
 epoch = 40
-batch_size = 8
+batch_size = 64
 z_dim = 64
 
 conv_hidden_num = 128
@@ -40,11 +41,13 @@ data_format = 'NHWC'
 g_lr = 0.00008
 d_lr = 0.00008
 
+lr_lower_boundary = 0.00002
+
 gamma = 0.5
 lambda_k = 0.5
 
-saveimage_period = 1
-savemodel_period = 40
+saveimage_period = 20
+savemodel_period = 200
 #-----------------------------m4_BE_GAN_network-----------------------------
 
 

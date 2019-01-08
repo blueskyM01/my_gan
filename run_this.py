@@ -5,7 +5,7 @@ import tensorflow as tf
 import param
 from model import my_gan
 
-os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'  # 指定第  块GPU可用
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'  # 指定第  块GPU可用
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # or any {'0', '1', '2'}
 # TF_CPP_MIN_LOG_LEVEL 取值 0 ： 0也是默认值，输出所有信息
@@ -43,6 +43,7 @@ parser.add_argument("--datalabel_dir", default=param.datalabel_dir, type=str, he
 parser.add_argument("--datalabel_name", default=param.datalabel_name, type=str, help="Train data label name")
 parser.add_argument("--log_dir", default=param.log_dir, type=str, help="Train data label name")
 parser.add_argument("--sampel_save_dir", default=param.sampel_save_dir, type=str, help="sampel save dir")
+parser.add_argument("--checkpoint_dir", default=param.checkpoint_dir, type=str, help="model save dir")
 parser.add_argument("--num_gpus", default=param.num_gpus, type=int, help="num of gpu")
 parser.add_argument("--epoch", default=param.epoch, type=int, help="epoch")
 parser.add_argument("--batch_size", default=param.batch_size, type=int, help="batch size for one gpus")
@@ -52,6 +53,7 @@ parser.add_argument("--conv_hidden_num", default=param.conv_hidden_num, type=int
 parser.add_argument("--data_format", default=param.data_format, type=str, help="data_format")
 parser.add_argument("--g_lr", default=param.g_lr, type=float, help="learning rate of G")
 parser.add_argument("--d_lr", default=param.d_lr, type=float, help="learning rate of D")
+parser.add_argument("--lr_lower_boundary", default=param.lr_lower_boundary, type=float, help="lower learning rate")
 parser.add_argument("--gamma", default=param.gamma, type=float, help="gamma")
 parser.add_argument("--lambda_k", default=param.lambda_k, type=float, help="lambda_k")
 parser.add_argument("--saveimage_period", default=param.saveimage_period, type=int, help="saveimage_period")
@@ -68,6 +70,7 @@ if __name__ == '__main__':
         os.makedirs(cfg.sampel_save_dir)
     config = tf.ConfigProto(log_device_placement=True, allow_soft_placement=True)
     config.gpu_options.allow_growth = True
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.9
     with tf.Session(config=config) as sess:
         my_gan = my_gan(sess, cfg)
         my_gan.train()

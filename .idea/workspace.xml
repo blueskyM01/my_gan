@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/ops.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/param.py" beforeDir="false" afterPath="$PROJECT_DIR$/param.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_this.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_this.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yh.py" beforeDir="false" afterPath="$PROJECT_DIR$/yh.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,31 +21,31 @@
     <session id="2080639796">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="4" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="jpg" value="36" />
-          <entry key="py" value="34" />
+          <entry key="jpg" value="109" />
+          <entry key="py" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="36" />
-          <entry key="Python" value="34" />
+          <entry key="Image" value="109" />
+          <entry key="Python" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7467" />
+          <entry key="py" value="8761" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7467" />
+          <entry key="Python" value="8761" />
         </counts>
       </usages-collector>
     </session>
@@ -53,22 +55,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_this.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+            <state relative-caret-position="559">
+              <caret line="54" column="88" selection-start-line="54" selection-start-column="88" selection-end-line="54" selection-end-column="88" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ops.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1794">
-              <caret line="228" column="69" selection-start-line="228" selection-start-column="69" selection-end-line="228" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="118" column="16" selection-start-line="118" selection-start-column="16" selection-end-line="119" selection-end-column="42" />
+            <state relative-caret-position="211">
+              <caret line="126" column="36" lean-forward="true" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -89,23 +79,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/networks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="179" column="36" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
+            <state relative-caret-position="97">
+              <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1546873294247" expanded="true" signature="114:119" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1546955759936" expanded="true" signature="114:119" ph="..." />
               </folding>
             </state>
           </provider>
@@ -114,17 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yh.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+            <state relative-caret-position="160">
+              <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -164,9 +133,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/yh.py" />
         <option value="$PROJECT_DIR$/ops.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/run_this.py" />
         <option value="$PROJECT_DIR$/param.py" />
         <option value="$PROJECT_DIR$/networks.py" />
@@ -194,16 +163,6 @@
               <item name="My_GAN" type="b2602c69:ProjectViewProjectNode" />
               <item name="My_GAN" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="My_GAN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My_GAN" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My_GAN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My_GAN" type="462c0819:PsiDirectoryNode" />
-              <item name="samples" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -211,7 +170,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BE_GAN" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -366,12 +325,12 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.151036" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14994547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32977587" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32977587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,234 +348,179 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/numpy/lib/npyio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="832" column="15" selection-start-line="832" selection-start-column="8" selection-end-line="832" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/563278594/numpy/core/multiarray.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/563278594/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="7118" column="4" selection-start-line="7118" selection-start-column="4" selection-end-line="7118" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/argparse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1298" column="8" selection-start-line="1298" selection-start-column="8" selection-end-line="1298" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/variables.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="1316" column="4" selection-start-line="1316" selection-start-column="4" selection-end-line="1316" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/training/optimizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="354" column="44" selection-start-line="354" selection-start-column="36" selection-end-line="354" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/init_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="550" column="28" selection-start-line="550" selection-start-column="28" selection-end-line="550" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/gen_nn_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="561" column="38" lean-forward="true" selection-start-line="561" selection-start-column="38" selection-end-line="561" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="759" selection-start-line="759" selection-end-line="759" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/nn_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="1932" column="4" selection-start-line="1932" selection-start-column="4" selection-end-line="1932" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/gen_array_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="3865" column="4" selection-start-line="3865" selection-start-column="4" selection-end-line="3865" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/math_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="1366" column="4" selection-start-line="1366" selection-start-column="4" selection-end-line="1366" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/563278594/cytoolz/itertoolz/__init__/Random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/data/ops/dataset_ops.py" />
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/image_ops_impl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="1011" column="36" selection-start-line="1011" selection-start-column="31" selection-end-line="1011" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/563278594/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="2695" column="4" selection-start-line="2695" selection-start-column="4" selection-end-line="2695" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/563278594/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="4613" column="6" selection-start-line="4613" selection-start-column="6" selection-end-line="4613" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/samples/1.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/13.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/19.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/11.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/22.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/10.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/14.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/15.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/8.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/9.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/2.jpg" />
-    <entry file="file://$PROJECT_DIR$/samples/0.jpg" />
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/array_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="1517" column="28" selection-start-line="1517" selection-start-column="23" selection-end-line="1517" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/python/training/adam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1794">
-          <caret line="228" column="69" selection-start-line="228" selection-start-column="69" selection-end-line="228" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_3.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_0_40.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_2.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_0_20.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_1.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_4_280.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_7.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_5_340.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_12.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_6_420.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_55.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_6_400.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_54.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_6_380.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_78.jpg">
+    <entry file="file://$PROJECT_DIR$/samples/train_5_360.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_7_460.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_7_440.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_9_580.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_12_740.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_11_720.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_11_700.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_10_640.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_12_760.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_12_780.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_13_800.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_13_820.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_13_840.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_14_900.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_16_1000.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_16_980.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_15_960.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_15_940.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_15_920.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_18_1100.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_16_1020.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_18_1140.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_19_1160.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_25_1540.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_26_1580.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_26_1600.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_27_1660.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_29_1780.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_27_1680.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_31_1880.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_32_1940.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_32_1980.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_34_2060.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_34_2080.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_35_2140.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_36_2180.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_37_2240.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_36_2220.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_37_2260.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/samples/train_37_2280.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/run_this.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+        <state relative-caret-position="559">
+          <caret line="54" column="88" selection-start-line="54" selection-start-column="88" selection-end-line="54" selection-end-column="88" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_141.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/samples/train_0_140.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/param.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="160">
+          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/networks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="179" column="36" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
+        <state relative-caret-position="97">
+          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1546873294247" expanded="true" signature="114:119" ph="..." />
+            <marker date="1546955759936" expanded="true" signature="114:119" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="118" column="16" selection-start-line="118" selection-start-column="16" selection-end-line="119" selection-end-column="42" />
+        <state relative-caret-position="211">
+          <caret line="126" column="36" lean-forward="true" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

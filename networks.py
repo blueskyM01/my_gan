@@ -141,8 +141,6 @@ class m4_BE_GAN_network:
         self.conv_hidden_num = cfg.conv_hidden_num
         self.data_format = cfg.data_format
         self.z_dim = cfg.z_dim
-        self.g_lr = self.cfg.g_lr
-        self.d_lr = self.cfg.d_lr
         self.gamma = self.cfg.gamma
         self.lambda_k = self.cfg.lambda_k
 
@@ -153,6 +151,13 @@ class m4_BE_GAN_network:
                 self.get_conv_shape(images, self.data_format)
             self.repeat_num = int(np.log2(height)) - 2
 
+            self.g_lr = tf.Variable(self.cfg.g_lr, name='g_lr')
+            self.d_lr = tf.Variable(self.cfg.d_lr, name='d_lr')
+
+            self.g_lr_update = tf.assign(self.g_lr, tf.maximum(self.g_lr * 0.5, self.cfg.lr_lower_boundary),
+                                         name='g_lr_update')
+            self.d_lr_update = tf.assign(self.d_lr, tf.maximum(self.d_lr * 0.5, self.cfg.lr_lower_boundary),
+                                         name='d_lr_update')
 
             self.op_g = tf.train.AdamOptimizer(learning_rate=self.g_lr)
             self.op_d = tf.train.AdamOptimizer(learning_rate=self.d_lr)
@@ -197,11 +202,6 @@ class m4_BE_GAN_network:
 
                         self.d_loss = self.d_loss_real - self.k_t * self.d_loss_fake
                         self.g_loss = tf.reduce_mean(tf.abs(AE_G - G))
-
-                        # d_optim = d_optimizer.minimize(self.d_loss, var_list=self.D_var)
-                        # g_optim = g_optimizer.minimize(self.g_loss, global_step=self.step, var_list=self.G_var)
-
-
 
 
                         '''
@@ -253,17 +253,18 @@ class m4_BE_GAN_network:
 
 
                 print('Init GPU:{} finshed'.format(i))
-        mean_grad_g = m4_average_grads(grads_g)
-        mean_grad_d = m4_average_grads(grads_d)
-        self.g_optim = self.op_g.apply_gradients(mean_grad_g)
-        self.d_optim = self.op_d.apply_gradients(mean_grad_d, global_step=self.global_step)
+        with tf.device("/gpu:{}".format(0)):
+            mean_grad_g = m4_average_grads(grads_g)
+            mean_grad_d = m4_average_grads(grads_d)
+            self.g_optim = self.op_g.apply_gradients(mean_grad_g)
+            self.d_optim = self.op_d.apply_gradients(mean_grad_d)
 
-        self.balance = self.gamma * self.d_loss_real - self.g_loss
-        self.measure = self.d_loss_real + tf.abs(self.balance)
-
-        # with tf.control_dependencies([self.op_g, self.op_d]):
-        self.k_update = tf.assign(
-            self.k_t, tf.clip_by_value(self.k_t + self.lambda_k * self.balance, 0, 1))
+            self.balance = self.gamma * self.d_loss_real - self.g_loss
+            self.measure = self.d_loss_real + tf.abs(self.balance)
+            self.measure_sum = tf.summary.scalar('measure', self.measure)
+            with tf.control_dependencies([self.g_optim, self.d_optim]):
+                self.k_update = tf.assign(
+                    self.k_t, tf.clip_by_value(self.k_t + self.lambda_k * self.balance, 0, 1))
 
     def GeneratorCNN(self, z, hidden_num, output_num, repeat_num, data_format, reuse):
         with tf.variable_scope("generator", reuse=reuse) as vs:
